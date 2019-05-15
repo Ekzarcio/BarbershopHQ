@@ -30,5 +30,8 @@ post '/visit' do
 	@barber = params[:barber]
 	@color = params[:color]
 
+	@base = Client.new params[:client]
+	@base.save
+
 	erb "Уважаемый #{@username}, ждем Вас #{@datetime}"
 end
