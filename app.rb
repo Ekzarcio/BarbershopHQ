@@ -32,7 +32,7 @@ end
 post '/visit' do
 	@base = Client.new params[:client]
 	if @base.save
-		erb erb "Спасибо, Вы записались"
+		erb "Спасибо, Вы записались"
 	else
 		@error = @base.errors.full_messages.first
 		erb :visit
@@ -42,4 +42,14 @@ end
 get '/barber/:id' do
 	@barber = Barber.find(params[:id])
 	erb :barber
+end
+
+get '/bookings' do
+	@clients = Client.all
+	erb :bookings
+end
+
+get '/client/:id' do
+	@client = Client.find(params[:id])
+	erb :client
 end
