@@ -11,6 +11,24 @@ end
 class Barber < ActiveRecord::Base
 end
 
+before do
+	@barbers = Barber.all
+end
+
 get '/' do
-	erb "Hello! <a href=\"https://github.com/bootstrap-ruby/sinatra-bootstrap\">Original</a> pattern has been modified for <a href=\"http://rubyschool.us/\">Ruby School</a>"			
+	erb :index
+end
+
+get '/visit' do
+	erb :visit
+end
+
+post '/visit' do
+	@username = params[:username]
+	@userphone = params[:userphone]
+	@datetime = params[:datetime]
+	@barber = params[:barber]
+	@color = params[:color]
+
+	erb "Уважаемый #{@username}, ждем Вас #{@datetime}"
 end
