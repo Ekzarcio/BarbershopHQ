@@ -24,6 +24,10 @@ get '/' do
 	erb :index
 end
 
+get '/about' do
+	erb :about
+end
+
 get '/visit' do
 	@base = Client.new
 	erb :visit
