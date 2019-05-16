@@ -36,8 +36,8 @@
     <label>Выберите барбера</label>
     <p><select name="client[barber]" required class="form-control">
       <option disabled selected value=""></option>
-      <% @barbers.each do |item| %>
-        <option <%= @barber == item['name'] ? 'selected' : '' %>><%= item['name'] %></option>
+      <% @barbers.each do |barber| %>   
+        <option><%= barber.name %></option>
       <% end %>
     </select></p>
   </div>
