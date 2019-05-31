@@ -16,8 +16,12 @@ end
 class Barber < ActiveRecord::Base
 end
 
+class Service <ActiveRecord::Base
+end
+
 before do
 	@barbers = Barber.all
+	@services = Service.all
 end
 
 get '/' do
@@ -25,7 +29,7 @@ get '/' do
 end
 
 get '/about' do
-	erb :about
+		erb :about
 end
 
 get '/visit' do

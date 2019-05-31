@@ -1,3 +1,9 @@
 <h2>About page</h2>
-
+<% @services.each do |service| %>
+	<p>
+		<%= service.name %><br />
+		<%= service.description %><br />
+		<%= service.price %><br />
+	</p>
+<% end %>
 <button type="submit" class="btn btn-primary" onclick="something()">Push me!</button>
