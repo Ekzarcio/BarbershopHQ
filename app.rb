@@ -24,12 +24,8 @@ get '/visit' do
 end
 
 post '/visit' do
-	@name = params[:name]
-	@phone = params[:phone]
-	@datestamp = params[:datestamp]
-	@barber = params[:barber]
+	c = Client.new params[:client]
+	c.save
 
-	Client.create :name => @name, :phone => @phone, :datestamp => @datestamp, :barber => @barber 
-
-	erb "Ок, ждем Вас!"
+	erb "Спасибо, ждем Вас!"
 end

@@ -3,22 +3,22 @@
 <form action="/visit" method="POST" role="form">
   <div class="form-group">
     <label>Ваше имя</label>
-    <input name="name" type="text" class="form-control" placeholder="Введите Ваше имя" value=<%= @name %>>
+    <input name="client[name]" type="text" class="form-control" placeholder="Введите Ваше имя" >
   </div>
 
   <div class="form-group">
     <label>Ваш телефон</label>
-    <input name="phone" type="text" class="form-control" placeholder="Введите Ваш телефон" value=<%= @phone %>>
+    <input name="client[phone]" type="text" class="form-control" placeholder="Введите Ваш телефон" >
   </div>
 
   <div class="form-group">
     <label>Укажите время визита</label>
-    <input id="dtp1" name="datestamp" type="text" class="form-control" placeholder="Введите время визита" value=<%= @datestamp %>>
+    <input id="dtp1" name="client[datestamp]" type="text" class="form-control" placeholder="Введите время визита" >
   </div>
 
   <div class="form-group">
   <label for="baber">Выберите барбера</label><br />
-  <select name="barber" class="custom-select">
+  <select name="client[barber]" class="custom-select">
   	<% @barbers.each do |item| %>
   	<option <%= @barbers == item['name'] ? 'selected' : '' %> value=<%= item['name'] %> ><%= item['name'] %></option>
   	<% end %>
