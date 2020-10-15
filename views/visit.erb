@@ -1,0 +1,40 @@
+<h4>Ниже Вы можете записаться на стрижку</h4>
+
+<form action="/visit" method="POST" role="form">
+  <div class="form-group">
+    <label>Ваше имя</label>
+    <input name="name" type="text" class="form-control" placeholder="Введите Ваше имя" value=<%= @name %>>
+  </div>
+
+  <div class="form-group">
+    <label>Ваш телефон</label>
+    <input name="phone" type="text" class="form-control" placeholder="Введите Ваш телефон" value=<%= @phone %>>
+  </div>
+
+  <div class="form-group">
+    <label>Укажите время визита</label>
+    <input id="dtp1" name="datestamp" type="text" class="form-control" placeholder="Введите время визита" value=<%= @datestamp %>>
+  </div>
+
+  <div class="form-group">
+  <label for="baber">Выберите барбера</label><br />
+  <select name="barber" class="custom-select">
+  	<% @barbers.each do |item| %>
+  	<option <%= @barbers == item['name'] ? 'selected' : '' %> value=<%= item['name'] %> ><%= item['name'] %></option>
+  	<% end %>
+  </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Записаться</button>
+</form>
+
+<script type="text/javascript">
+ 		$('#dtp1').datetimepicker({
+ 			format:'Y-m-d H:i',
+ 			dayOfWeekStart: 1,
+ 			lang: 'ru',
+ 			minDate: 0,
+ 			minTime: '10:00',
+ 			maxTime: '21:00'
+ 		});
+</script>
